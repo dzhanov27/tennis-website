@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Player from '../components/Player';
+import Player from './Player';
 
 class RatingContainer extends React.Component {
   state = {

@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Photo from '../components/Photo'
-// import Menu from './containers/Menu'
+import Photo from './Photo'
 
 class GalleryContainer extends React.Component {
   state = {

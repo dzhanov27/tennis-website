@@ -1,19 +1,13 @@
 import React from 'react';
 
-import News from '../components/News';
-import SearchNews from '../components/SearchNews'
-import '../css/News.css'
+import News from './News';
+import SearchNews from './SearchNews'
 
 
 class NewsContainer extends React.Component {
 
   state = {
-    post: [
-      { title: '1', content: 'news' },
-      { title: 'TITLE', content: '21615151' },
-      { title: 'smth', content: 'adadada' },
-      { title: 'nice', content: 'newewwqeqws' }
-    ],
+    post: [],
     fitler: [],
     search: '',
     title: '',
@@ -48,8 +42,8 @@ class NewsContainer extends React.Component {
     this.setState({
       ...this.state,
       post: postArr,
-      title: '',
-      content: '',
+      // title: '',
+      // content: '',
     })
   }
 
@@ -63,8 +57,14 @@ class NewsContainer extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>NEWS</h1>
+      <div className="News">
+        <form className = 'relative'>
+          <input className = "News__inputSearch" onChange={(event) => this.searchAdd(event.target.value)} type='text' placeholder = 'Что вы ищете?'/>
+          <button className = 'News__buttonAdd' onClick={() => this.search(this.state.search)} type='button'>Жмякай</button>
+        </form>
+        
+        <h1 className = 'News__title'>NEWS</h1>
+        <hr/>
         <div className='search__block'>
           {this.state.fitler.map((currentValue, index) =>
             <SearchNews
@@ -73,16 +73,7 @@ class NewsContainer extends React.Component {
               content={currentValue.content}
             />)}
         </div>
-
-
-        <input onChange={(event) => this.postName(event.target.value)} type='text' placeholder='title' />
-        <input onChange={(event) => this.postContent(event.target.value)} type='text' placeholder='content' />
-        <button onClick={() => this.addNewPost()} type='button'>Add news</button>
-
-        <input onChange={(event) => this.searchAdd(event.target.value)} type='text' />
-        <button onClick={() => this.search(this.state.search)} type='button'>Search</button>
-
-
+        
         {this.state.post.map((currentValue, index) =>
           <News
             key={index}
@@ -90,6 +81,14 @@ class NewsContainer extends React.Component {
             content={currentValue.content}
             showEditWindow={() => this.showEditWindow(index)}
           />)}
+
+        <div className = 'News__label'>Subject
+            <input className = 'News__inputTitle' onChange={(event) => this.postName(event.target.value)} type='text' placeholder='title' />
+        </div>
+        <div className = 'News__label'>Topic
+            <textarea className = 'News__inputContent' onChange={(event) => this.postContent(event.target.value)} type='text' placeholder='content' />
+        </div>
+        <button className = 'News__buttonAdd' onClick={() => this.addNewPost()} type='button'>Post a news</button>
 
       </div>
     )//return

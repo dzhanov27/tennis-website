@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; 
 
-import Announce from '../components/Announce'
+import Announce from '../components/Announce';
 
 
 class AncContainer extends Component {
@@ -37,7 +37,7 @@ class AncContainer extends Component {
    
 render(){
     return(
-            <div>
+            <div className = 'Article'>
                 <h2>ANNOUNCES</h2>
                 <input onChange = {this.handleInputText} type = 'text' placeholder="enter announce"/>
                 <input onChange = {this.handleInputDate} type="date"/>
