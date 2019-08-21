@@ -4,12 +4,11 @@ class Authentication extends React.Component {
 
   render () {
     return(
-      <>
-        <input type="text" placeholder="Login"/>
-        <input type="text" placeholder="Password"/>
-        <button>Sign in</button>
-        <button>Sign up</button>
-      </>
+      <div>
+        
+        <button onClick = {this.props.logIn} className = 'header__button'>Log in</button>
+        <button className = 'header__button'>Sign up</button>
+      </div>
     );
   }
 }
