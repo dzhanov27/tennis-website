@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../css/News.css'
-
 function Search(props) {
   return (
     <div>
